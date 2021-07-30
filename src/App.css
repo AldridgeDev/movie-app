@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+:root {
+  --blue: #4067E1;
+  --purple: slateblue;
+  --white: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: var(--blue);
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+  display: flex;
+  justify-content: center;
+  background: var(--purple);
+  padding: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.movie-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.movie {
+  background: var(--white);
+  color: var(--purple);
+  width: min(250px, 100%);
+  margin: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 -3px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie img {
+  object-fit: cover;
+  height: 400px;
+  max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+.movie-overview {
+  background: var(--white);
+  color: var(--purple);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  transform: translateY(102%);
+  transition: transform 0.3s ease-in-out;
+  overflow: auto;
+  max-height: 100%;
+}
+
+.movie:hover .movie-overview {
+  transform: translateX(0%);
+}
+
+.search {
+  font-size: 1.2rem;
+  border: 2px solid var(--white);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+
+.search::placeholder {
+  color: var(--white);
+}
+
+.search:focus {
+  outline: none;
+}
+
+.tag {
+  background: var(--purple);
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.tag.green {
+  color: limegreen;
+}
+
+.tag.orange {
+  color: orange;
+}
+
+.tag.red {
+  color: red;
 }
